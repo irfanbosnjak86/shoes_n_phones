@@ -15,7 +15,7 @@ class Admin::ShoesController < ApplicationController
 
   # GET /admin/shoes/new
   def new
-    @shoe = Shoe.new
+    @shoe = current_admin.shoes.build
   end
 
   # GET /admin/shoes/1/edit
@@ -25,7 +25,7 @@ class Admin::ShoesController < ApplicationController
   # POST /admin/shoes
   # POST /admin/shoes.json
   def create
-    @shoe = Shoe.new(admin_shoe_params)
+    @shoe = current_admin.shoes.build(admin_shoe_params)
 
     respond_to do |format|
       if @shoe.save
