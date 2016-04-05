@@ -1,0 +1,16 @@
+= simple_form_for [:admin, @shoe] do |f|
+  - if @shoe.errors.any?
+    #errors
+      %p
+        = pluralize(@shoe.errors.count, "error")
+        Sprečilo kreiranje artikla obuća
+      %ul 
+        - @shoe.errors.full_messages.each do |msg|
+          %li= msg
+  .panel-body
+    .form-group 
+      = f.input :title, input_html: { class: 'form-control' }
+      = f.input :description, input_html: { class: 'form-control' }
+
+    = f.button :submit, class: "btn btn-primary"
+

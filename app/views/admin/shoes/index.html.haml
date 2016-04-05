@@ -1,0 +1,16 @@
+%p#notice
+  = notice
+
+%h1 Lista svih patika/cipela
+.row 
+  %h3= link_to 'New Shoe', new_admin_shoe_path
+.shoes
+  - @shoes.each do |shoe|
+    .row
+      .col-md-6
+        = shoe.title
+      .col-md-3
+        = link_to 'Show', [:admin, shoe]
+        = link_to 'Edit', edit_admin_shoe_path(shoe)
+        = link_to 'Destroy', [:admin, shoe], method: :delete, data: { confirm: 'Are you sure?' } 
+
