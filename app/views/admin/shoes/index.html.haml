@@ -1,10 +1,7 @@
-%p#notice
-  = notice
-
 %h1 Lista svih patika/cipela
-.row 
-  %h3= link_to 'New Shoe', new_admin_shoe_path
-.shoes
+.panel-heading
+  %h3= link_to 'New Shoe', new_admin_shoe_path, class: 'btn btn-primary'
+.panel-body
   - @shoes.each do |shoe|
     .row
       .col-md-6

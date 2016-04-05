@@ -1,5 +1,9 @@
-%p#notice
-  = notice
+.main_content
+  .panel-heading
+    %h2= @shoe.title
+    %p= @shoe.description
+
+
 = link_to 'Edit', edit_admin_shoe_path(@shoe) 
 = link_to 'Back', admin_shoes_path
 
