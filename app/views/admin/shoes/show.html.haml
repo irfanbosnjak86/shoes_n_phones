@@ -1,7 +1,7 @@
 .main_content
   .panel-heading
     %h2= @shoe.title
-    %p= @shoe.description
+    %p= @shoe.description.html_safe
 
 
 = link_to 'Edit', edit_admin_shoe_path(@shoe) 
