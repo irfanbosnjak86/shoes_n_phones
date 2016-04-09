@@ -70,6 +70,6 @@ class Admin::ShoesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_shoe_params
-      params.require(:shoe).permit(:title, :description)
+      params.require(:shoe).permit(:title, :description, :feat_img)
     end
 end

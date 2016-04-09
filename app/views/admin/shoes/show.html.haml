@@ -1,6 +1,9 @@
 .main_content
   .panel-heading
     %h2= @shoe.title
+    .image-wrapper
+      = image_tag @shoe.feat_img.url('medium')
+  .panel-body
     %p= @shoe.description.html_safe
 
 
