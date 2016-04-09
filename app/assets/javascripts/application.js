@@ -11,8 +11,31 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require ckeditor/init
 //= require_tree .
+//= require turbolinks
+
+$(document).ready(function(){
+
+  function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#feat_img_prev').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $("#feat_img").change(function(){
+      readURL(this);
+  });
+
+});

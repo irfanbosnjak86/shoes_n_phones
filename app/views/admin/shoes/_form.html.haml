@@ -9,11 +9,17 @@
           %li= msg
   .panel-heading
     .image-wrapper
-      = f.file_field :feat_img
+      - if f.object.new_record? 
+        %img(id="feat_img_prev"  alt="image")
+      - else
+        = image_tag @shoe.feat_img.url('medium'), id: 'feat_img_prev'
+    .btn.btn-success
+      Dodaj Sliku
+      = f.file_field :feat_img, id: "feat_img"
   .panel-body
     .form-group 
       = f.input :title, input_html: { class: 'form-control' }
-      = f.input :description, input_html: { class: 'form-control' }, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini'} }
+      = f.cktext_area :description, class: "ckeditor", :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'mini'} }
 
     = f.button :submit, class: "btn btn-primary"
 
